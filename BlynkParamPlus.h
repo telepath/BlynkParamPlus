@@ -14,21 +14,20 @@ public:
     BlynkParamPlus operator+(const BlynkParam param);
 };
 
-
 inline
 BlynkParamPlus BlynkParamPlus::operator+(const BlynkParam param)
 {
   for (int i = 0; param[i] < param.end(); ++i) {
     if (param[i].isValid()) {
-      Serial.print("Add param[");
-      Serial.print(i);
-      Serial.print("] = ");
-      Serial.println(param[i].asStr());
+      // Serial.print("Add param[");
+      // Serial.print(i);
+      // Serial.print("] = ");
+      // Serial.println(param[i].asStr());
       add(param[i].asStr());
     } else {
-      Serial.print("param[");
-      Serial.print(i);
-      Serial.println("] exceeds limit, break");
+      // Serial.print("param[");
+      // Serial.print(i);
+      // Serial.println("] exceeds limit, break");
       break;
     }
   }
@@ -38,7 +37,7 @@ BlynkParamPlus BlynkParamPlus::operator+(const BlynkParam param)
 inline
 BlynkParamPlus BlynkParamPlus::operator=(const BlynkParam param)
 {
-  Serial.println("Reset length");
+  // Serial.println("Reset length");
   len=0;
   *buff = '\0';
   return *this + param;
