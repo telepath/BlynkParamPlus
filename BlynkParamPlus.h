@@ -13,6 +13,7 @@ public:
     BlynkParamPlus operator=(const BlynkParam param);
     BlynkParamPlus operator=(int param);
     BlynkParamPlus operator=(float param);
+    BlynkParamPlus operator=(const char* param);
     BlynkParamPlus operator=(char* param);
     BlynkParamPlus operator+(const BlynkParam param);
 
@@ -70,6 +71,14 @@ BlynkParamPlus BlynkParamPlus::operator=(float param)
 
 inline
 BlynkParamPlus BlynkParamPlus::operator=(char* param)
+{
+  this->reset();
+  this->add(param);
+  return *this;
+}
+
+inline
+BlynkParamPlus BlynkParamPlus::operator=(const char* param)
 {
   this->reset();
   this->add(param);
